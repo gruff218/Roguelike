@@ -1,3 +1,4 @@
 # Roguelike
-# VINCENT PROJECT ONLY
+Group: Connor, Will
+Footrests: Vincent
 CS 5 Project
