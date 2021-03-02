@@ -46,7 +46,10 @@ public class PlayerCombat : MonoBehaviour
         
 
         foreach(Collider2D enemy in hitEnemies) {
-            enemy.GetComponent<Enemy>().takeDamage(attackDamage);
+            if (!enemy.isTrigger){
+                enemy.GetComponent<Enemy>().takeDamage(attackDamage);
+			}
+            
 		}
 
         
@@ -91,7 +94,7 @@ public class PlayerCombat : MonoBehaviour
     }
 
     void Die() {
-    Debug.Log("Died");
+        Debug.Log("Died");
         GetComponent<Collider2D>().enabled = false;
         GetComponent<PlayerMovement>().enabled = false;
         this.enabled = false;

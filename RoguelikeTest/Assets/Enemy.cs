@@ -23,6 +23,9 @@ public class Enemy : MonoBehaviour
 
         animator.SetTrigger("TakeDamage");
 
+        Debug.Log("Enemy took " + damage + " damage");
+        Debug.Log("Current health is " + currentHealth);
+
 
         if (currentHealth <= 0) {
             Die();  
