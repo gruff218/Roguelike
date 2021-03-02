@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        animator.SetInteger("Health", currentHealth);
     }
 
     public void takeDamage(int damage) {
