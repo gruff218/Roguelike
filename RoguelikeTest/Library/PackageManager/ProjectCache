@@ -1,20 +1,20 @@
 m_ProjectFiles:
   m_ManifestFileStatus:
-    m_FilePath: C:/Users/willy/Documents/GitHub/rogue/RoguelikeTest/Packages/manifest.json
+    m_FilePath: C:/Users/willy/Google Drive/10th Grade/CS 5/Roguelike/RoguelikeTest/Packages/manifest.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637502720061000154
-    m_Hash: 2507816435
+      ticks: 637504803654367570
+    m_Hash: 2968935912
   m_LockFileStatus:
-    m_FilePath: C:/Users/willy/Documents/GitHub/rogue/RoguelikeTest/Packages/packages-lock.json
+    m_FilePath: C:/Users/willy/Google Drive/10th Grade/CS 5/Roguelike/RoguelikeTest/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637502720218724017
-    m_Hash: 1751803053
+      ticks: 637504803705968326
+    m_Hash: 3942520724
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -25,7 +25,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 5.0.4
       source: 1
-      resolvedPath: C:\Users\willy\Documents\GitHub\rogue\RoguelikeTest\Library\PackageCache\com.unity.2d.animation@5.0.4
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.2d.animation@5.0.4
       assetPath: Packages/com.unity.2d.animation
       name: com.unity.2d.animation
       displayName: 2D Animation
@@ -155,7 +155,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 4.0.1
       source: 1
-      resolvedPath: C:\Users\willy\Documents\GitHub\rogue\RoguelikeTest\Library\PackageCache\com.unity.2d.pixel-perfect@4.0.1
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.2d.pixel-perfect@4.0.1
       assetPath: Packages/com.unity.2d.pixel-perfect
       name: com.unity.2d.pixel-perfect
       displayName: 2D Pixel Perfect
@@ -228,7 +228,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 4.0.2
       source: 1
-      resolvedPath: C:\Users\willy\Documents\GitHub\rogue\RoguelikeTest\Library\PackageCache\com.unity.2d.psdimporter@4.0.2
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.2d.psdimporter@4.0.2
       assetPath: Packages/com.unity.2d.psdimporter
       name: com.unity.2d.psdimporter
       displayName: 2D PSD Importer
@@ -388,7 +388,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 5.1.1
       source: 1
-      resolvedPath: C:\Users\willy\Documents\GitHub\rogue\RoguelikeTest\Library\PackageCache\com.unity.2d.spriteshape@5.1.1
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.2d.spriteshape@5.1.1
       assetPath: Packages/com.unity.2d.spriteshape
       name: com.unity.2d.spriteshape
       displayName: 2D SpriteShape
@@ -562,12 +562,131 @@ m_PackageAssets:
         url: 
         revision: 
         path: 
+    - packageId: com.unity.cinemachine@2.6.3
+      testable: 0
+      isDirectDependency: 1
+      version: 2.6.3
+      source: 1
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.cinemachine@2.6.3
+      assetPath: Packages/com.unity.cinemachine
+      name: com.unity.cinemachine
+      displayName: Cinemachine
+      author:
+        name: 
+        email: 
+        url: 
+      category: cinematography
+      type: 
+      description: "Smart camera tools for passionate creators. \n\nIMPORTANT NOTE:
+        If you are upgrading from the Asset Store version of Cinemachine, delete
+        the Cinemachine asset from your project BEFORE installing this version from
+        the Package Manager."
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 2.1.11-beta.1
+        - 2.1.12
+        - 2.1.13
+        - 2.2.0
+        - 2.2.7
+        - 2.2.8
+        - 2.2.9
+        - 2.2.10-preview.3
+        - 2.2.10-preview.4
+        - 2.3.1
+        - 2.3.3
+        - 2.3.4
+        - 2.3.5-preview.3
+        - 2.4.0-preview.3
+        - 2.4.0-preview.4
+        - 2.4.0-preview.6
+        - 2.4.0-preview.7
+        - 2.4.0-preview.8
+        - 2.4.0-preview.9
+        - 2.4.0-preview.10
+        - 2.4.0
+        - 2.5.0
+        - 2.6.0-preview.2
+        - 2.6.0-preview.3
+        - 2.6.0-preview.5
+        - 2.6.0-preview.8
+        - 2.6.0
+        - 2.6.1-preview.6
+        - 2.6.1
+        - 2.6.2-preview.1
+        - 2.6.2
+        - 2.6.3-preview.2
+        - 2.6.3
+        - 2.7.1
+        - 2.7.2
+        compatible:
+        - 2.5.0
+        - 2.6.0-preview.2
+        - 2.6.0-preview.3
+        - 2.6.0-preview.5
+        - 2.6.0-preview.8
+        - 2.6.0
+        - 2.6.1-preview.6
+        - 2.6.1
+        - 2.6.2-preview.1
+        - 2.6.2
+        - 2.6.3-preview.2
+        - 2.6.3
+        - 2.7.1
+        - 2.7.2
+        verified: 2.6.3
+      dependencies: []
+      resolvedDependencies: []
+      keywords:
+      - camera
+      - follow
+      - rig
+      - fps
+      - cinematography
+      - aim
+      - orbit
+      - cutscene
+      - cinematic
+      - collision
+      - freelook
+      - cinemachine
+      - compose
+      - composition
+      - dolly
+      - track
+      - clearshot
+      - noise
+      - framing
+      - handheld
+      - lens
+      - impulse
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637364189870000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: git+https://github.com/Unity-Technologies/upm-package-cinemachine.git
+        revision: bec7fa48fa2d6e9e46243f24d3b1d62918a6b377
+        path: 
     - packageId: com.unity.collab-proxy@1.3.9
       testable: 0
       isDirectDependency: 1
       version: 1.3.9
       source: 1
-      resolvedPath: C:\Users\willy\Documents\GitHub\rogue\RoguelikeTest\Library\PackageCache\com.unity.collab-proxy@1.3.9
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.collab-proxy@1.3.9
       assetPath: Packages/com.unity.collab-proxy
       name: com.unity.collab-proxy
       displayName: Unity Collaborate
@@ -662,7 +781,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 2.0.7
       source: 1
-      resolvedPath: C:\Users\willy\Documents\GitHub\rogue\RoguelikeTest\Library\PackageCache\com.unity.ide.rider@2.0.7
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.ide.rider@2.0.7
       assetPath: Packages/com.unity.ide.rider
       name: com.unity.ide.rider
       displayName: JetBrains Rider Editor
@@ -701,6 +820,7 @@ m_PackageAssets:
         - 3.0.2
         - 3.0.3
         - 3.0.4
+        - 3.0.5
         compatible:
         - 1.0.2
         - 1.0.6
@@ -724,6 +844,7 @@ m_PackageAssets:
         - 3.0.2
         - 3.0.3
         - 3.0.4
+        - 3.0.5
         verified: 2.0.7
       dependencies:
       - name: com.unity.test-framework
@@ -763,7 +884,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 2.0.5
       source: 1
-      resolvedPath: C:\Users\willy\Documents\GitHub\rogue\RoguelikeTest\Library\PackageCache\com.unity.ide.visualstudio@2.0.5
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.ide.visualstudio@2.0.5
       assetPath: Packages/com.unity.ide.visualstudio
       name: com.unity.ide.visualstudio
       displayName: Visual Studio Editor
@@ -780,10 +901,32 @@ m_PackageAssets:
       errors: []
       versions:
         all:
+        - 1.0.2
+        - 1.0.3
+        - 1.0.4
+        - 1.0.9
+        - 1.0.10
+        - 1.0.11
+        - 2.0.0
+        - 2.0.1
+        - 2.0.2
+        - 2.0.3
         - 2.0.5
+        - 2.0.7
         compatible:
+        - 1.0.2
+        - 1.0.3
+        - 1.0.4
+        - 1.0.9
+        - 1.0.10
+        - 1.0.11
+        - 2.0.0
+        - 2.0.1
+        - 2.0.2
+        - 2.0.3
         - 2.0.5
-        verified: 2.0.5
+        - 2.0.7
+        verified: 2.0.7
       dependencies: []
       resolvedDependencies: []
       keywords: []
@@ -799,7 +942,7 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 0
+      datePublishedTicks: 637400980850000000
       documentationUrl: 
       hasRepository: 1
       repository:
@@ -812,7 +955,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.2.3
       source: 1
-      resolvedPath: C:\Users\willy\Documents\GitHub\rogue\RoguelikeTest\Library\PackageCache\com.unity.ide.vscode@1.2.3
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.ide.vscode@1.2.3
       assetPath: Packages/com.unity.ide.vscode
       name: com.unity.ide.vscode
       displayName: Visual Studio Code Editor
@@ -881,7 +1024,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 2.0.2
       source: 1
-      resolvedPath: C:\Users\willy\Documents\GitHub\rogue\RoguelikeTest\Library\PackageCache\com.unity.quicksearch@2.0.2
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.quicksearch@2.0.2
       assetPath: Packages/com.unity.quicksearch
       name: com.unity.quicksearch
       displayName: Quick Search
@@ -957,6 +1100,7 @@ m_PackageAssets:
         - 2.1.0-preview.2
         - 2.1.0-preview.3
         - 2.1.0-preview.4
+        - 2.1.0-preview.5
         - 3.0.0-preview.1
         - 3.0.0-preview.2
         - 3.0.0-preview.3
@@ -1015,6 +1159,7 @@ m_PackageAssets:
         - 2.1.0-preview.2
         - 2.1.0-preview.3
         - 2.1.0-preview.4
+        - 2.1.0-preview.5
         - 3.0.0-preview.1
         - 3.0.0-preview.2
         - 3.0.0-preview.3
@@ -1060,7 +1205,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.1.22
       source: 1
-      resolvedPath: C:\Users\willy\Documents\GitHub\rogue\RoguelikeTest\Library\PackageCache\com.unity.test-framework@1.1.22
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.test-framework@1.1.22
       assetPath: Packages/com.unity.test-framework
       name: com.unity.test-framework
       displayName: Test Framework
@@ -1147,7 +1292,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 3.0.1
       source: 1
-      resolvedPath: C:\Users\willy\Documents\GitHub\rogue\RoguelikeTest\Library\PackageCache\com.unity.textmeshpro@3.0.1
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.textmeshpro@3.0.1
       assetPath: Packages/com.unity.textmeshpro
       name: com.unity.textmeshpro
       displayName: TextMeshPro
@@ -1298,7 +1443,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.4.6
       source: 1
-      resolvedPath: C:\Users\willy\Documents\GitHub\rogue\RoguelikeTest\Library\PackageCache\com.unity.timeline@1.4.6
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.timeline@1.4.6
       assetPath: Packages/com.unity.timeline
       name: com.unity.timeline
       displayName: Timeline
@@ -3237,7 +3382,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 1.0.6
       source: 1
-      resolvedPath: C:\Users\willy\Documents\GitHub\rogue\RoguelikeTest\Library\PackageCache\com.unity.ext.nunit@1.0.6
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.ext.nunit@1.0.6
       assetPath: Packages/com.unity.ext.nunit
       name: com.unity.ext.nunit
       displayName: Custom NUnit
@@ -3298,7 +3443,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 1.1.0
       source: 1
-      resolvedPath: C:\Users\willy\Documents\GitHub\rogue\RoguelikeTest\Library\PackageCache\com.unity.mathematics@1.1.0
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.mathematics@1.1.0
       assetPath: Packages/com.unity.mathematics
       name: com.unity.mathematics
       displayName: Mathematics
@@ -3373,7 +3518,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 4.0.3
       source: 1
-      resolvedPath: C:\Users\willy\Documents\GitHub\rogue\RoguelikeTest\Library\PackageCache\com.unity.2d.common@4.0.3
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.2d.common@4.0.3
       assetPath: Packages/com.unity.2d.common
       name: com.unity.2d.common
       displayName: 2D Common
@@ -3456,7 +3601,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 4.0.1
       source: 1
-      resolvedPath: C:\Users\willy\Documents\GitHub\rogue\RoguelikeTest\Library\PackageCache\com.unity.2d.path@4.0.1
+      resolvedPath: C:\Users\willy\Google Drive\10th Grade\CS 5\Roguelike\RoguelikeTest\Library\PackageCache\com.unity.2d.path@4.0.1
       assetPath: Packages/com.unity.2d.path
       name: com.unity.2d.path
       displayName: 2D Path
@@ -3518,5 +3663,5 @@ m_PackageAssets:
         path: 
   m_LocalPackages:
     m_LocalFileStatus: []
-m_ProjectPath: C:/Users/willy/Documents/GitHub/rogue/RoguelikeTest/Packages
+m_ProjectPath: C:/Users/willy/Google Drive/10th Grade/CS 5/Roguelike/RoguelikeTest/Packages
 m_EditorVersion: 2020.2.6f1 (8a2143876886)
