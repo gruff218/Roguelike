@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
     }
     void Shoot()
     {
-        Vector2 target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y+130));
+        Vector2 target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y + 130));
         Vector2 myPos = new Vector2(transform.position.x, transform.position.y + 1);
         Vector2 direction = target - myPos;
         direction.Normalize();
