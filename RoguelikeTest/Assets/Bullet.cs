@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
+        
         Enemy e = hitInfo.GetComponent<Enemy>();
         if (e != null)
         {
@@ -23,5 +24,12 @@ public class Bullet : MonoBehaviour
 
 
     }
+    void OnCollisionEnter2D(Collision2D hitInfo) {
+        Debug.Log(hitInfo);
+        if (hitInfo.gameObject.tag == "Floor") {
+            Object.Destroy(this.gameObject);
+            return;  
+		}
+	}
 
 }
