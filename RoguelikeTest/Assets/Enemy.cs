@@ -10,11 +10,14 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     int currentHealth;
 
+    Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         animator.SetInteger("Health", currentHealth);
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public void takeDamage(int damage) {
@@ -34,9 +37,17 @@ public class Enemy : MonoBehaviour
 
     void Die() {
         GetComponent<Collider2D>().enabled = false;
-        GetComponent<EnemyAI>().enabled = false;
+        if (this.name == "Bird") {
+            GetComponent<BirdAI>().enabled = false;
+		} else if (this.name == "Opoussum") {
+            GetComponent<OpossumAI>().enabled = false;
+		}
+        
         GetComponent<Rigidbody2D>().gravityScale = 1;
         this.enabled = false;
 	}
     
+    void Update() {
+        animator.SetFloat("Velocity", rb.velocity.magnitude);
+	}
 }

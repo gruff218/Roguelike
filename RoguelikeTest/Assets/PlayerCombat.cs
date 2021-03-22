@@ -68,7 +68,7 @@ public class PlayerCombat : MonoBehaviour
 	}
 
 
-    void TakeDamage (int damage) {
+    public void TakeDamage (int damage) {
         currentHealth -= damage;
         animator.SetInteger("Health", currentHealth);
 
@@ -88,7 +88,7 @@ public class PlayerCombat : MonoBehaviour
         if (enemy.isTrigger) {
             if (Time.time >= nextDamageTime) {
                 int damage = 0;
-                if (enemy.tag == "Bird") {
+                if (enemy.tag == "Bird" || enemy.tag == "Opossum" || enemy.tag == "Bullet") {
                     damage = 30;        
 				}
                 TakeDamage(damage);

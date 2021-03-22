@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bird
   - Floor
+  - Opossum
+  - Bullet
   layers:
   - Default
   - TransparentFX
