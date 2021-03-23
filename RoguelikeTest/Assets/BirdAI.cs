@@ -7,7 +7,7 @@ public class BirdAI : MonoBehaviour
 {
 
     
-    public Transform target;
+    Transform target;
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
     public float birdSize = 5f;
@@ -28,7 +28,7 @@ public class BirdAI : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-
+        target = GameObject.FindWithTag("Player").transform;
         InvokeRepeating("UpdatePath", 0f, 0.5f);
 
         
@@ -37,6 +37,7 @@ public class BirdAI : MonoBehaviour
     void UpdatePath() {
         if (seeker.IsDone()) {
             seeker.StartPath(rb.position, target.position, OnPathComplete);  
+            
 		}
 	}
 
@@ -45,6 +46,7 @@ public class BirdAI : MonoBehaviour
             path = p; 
             currentWaypoint = 0;
 		}
+        
 	}
 
     // Update is called once per frame
@@ -54,6 +56,7 @@ public class BirdAI : MonoBehaviour
         if (path == null) {
             return;  
 		}
+        
 
         if (currentWaypoint >= path.vectorPath.Count) {
             reachedEndOfPath = true;  

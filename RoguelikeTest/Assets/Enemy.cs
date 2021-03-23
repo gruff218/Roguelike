@@ -12,12 +12,26 @@ public class Enemy : MonoBehaviour
 
     Rigidbody2D rb;
 
+    HealthBar healthBar;
+    public GameObject attackUp;
+    public GameObject attackSpeedUp;
+    public GameObject rangedUp;
+    public GameObject rangedSpeedUp;
+
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         animator.SetInteger("Health", currentHealth);
         rb = GetComponent<Rigidbody2D>();
+        healthBar = transform.GetChild(1).GetChild(0).GetComponent<HealthBar>();
+        healthBar.SetMaxHealth(currentHealth);
+
+        /*attackUp = GameObject.FindWithTag("AttackUp");
+        rangedUp = GameObject.FindWithTag("RangedUp");
+        attackSpeedUp = GameObject.FindWithTag("AttackSpeedUp");
+        rangedSpeedUp = GameObject.FindWithTag("RangedSpeedUp");
+        Debug.Log(rangedSpeedUp.tag);*/
     }
 
     public void takeDamage(int damage) {
@@ -29,6 +43,8 @@ public class Enemy : MonoBehaviour
         Debug.Log("Enemy took " + damage + " damage");
         Debug.Log("Current health is " + currentHealth);
 
+        healthBar.SetHealth(currentHealth);
+
 
         if (currentHealth <= 0) {
             Die();  
@@ -36,7 +52,27 @@ public class Enemy : MonoBehaviour
 	}
 
     void Die() {
-        GetComponent<Collider2D>().enabled = false;
+
+        int rand = Random.Range(0, 4);
+        GameObject powerUp = null;
+        if (rand == 0) {
+            powerUp = attackUp;
+		} else if (rand == 1) {
+            powerUp = rangedUp;
+		} else if (rand == 2) {
+            powerUp = attackSpeedUp;
+		} else if (rand == 3) {
+            powerUp = rangedSpeedUp;
+		}
+
+        Debug.Log(rand);
+        Instantiate(powerUp, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+
+        Collider2D[] colliders;
+        colliders = GetComponents<Collider2D>();
+        foreach (Collider2D collider in colliders) {
+            collider.enabled = false;  
+		}
         if (this.name == "Bird") {
             GetComponent<BirdAI>().enabled = false;
 		} else if (this.name == "Opoussum") {
@@ -45,6 +81,9 @@ public class Enemy : MonoBehaviour
         
         GetComponent<Rigidbody2D>().gravityScale = 1;
         this.enabled = false;
+
+        
+
 	}
     
     void Update() {

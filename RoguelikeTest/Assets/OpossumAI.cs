@@ -7,12 +7,11 @@ public class OpossumAI : MonoBehaviour
 {
 
     
-    public Transform target;
     public float speed = 200f;
     public float size = 5f;
 
     public Transform enemyGFX;
-    public Transform player;
+    Transform player;
 
     public GameObject bullet;
     public float bulletSpeed = 15f;
@@ -27,7 +26,7 @@ public class OpossumAI : MonoBehaviour
     {
 
         rb = GetComponent<Rigidbody2D>();
-
+        player = GameObject.FindWithTag("Player").transform;
         timeNextShot = shootSpeed;
 
         
@@ -40,7 +39,7 @@ public class OpossumAI : MonoBehaviour
     void Update() {
         if (timeNextShot <= 0) {
             Vector2 target = new Vector2(player.position.x, player.position.y);
-            Vector2 myPos = new Vector2(transform.position.x, transform.position.y + 1);
+            Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
             Vector2 direction = target - myPos;
             direction.Normalize();
             GameObject curBullet = (GameObject)Instantiate(bullet, transform.position, Quaternion.identity);
@@ -56,9 +55,9 @@ public class OpossumAI : MonoBehaviour
     {
 
   
-        float direction = (target.position.x - rb.position.x)/(Mathf.Abs(target.position.x - rb.position.x));
+        float direction = (player.position.x - rb.position.x)/(Mathf.Abs(player.position.x - rb.position.x));
         Vector2 force = new Vector2(4.0f * direction, 2f);
-        if (Mathf.Abs(target.position.x - rb.position.x) > 1) {
+        if (Mathf.Abs(player.position.x - rb.position.x) > 1) {
             rb.AddForce(force * speed * Time.deltaTime);
 		}
 

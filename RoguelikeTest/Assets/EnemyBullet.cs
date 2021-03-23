@@ -13,7 +13,7 @@ public class EnemyBullet : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Debug.Log(hitInfo.gameObject);
+        //Debug.Log(hitInfo.gameObject);
         if (hitInfo.gameObject.layer == 9) {
             return;  
 		}
@@ -32,7 +32,7 @@ public class EnemyBullet : MonoBehaviour
 
     }
     void OnCollisionEnter2D(Collision2D hitInfo) {
-        Debug.Log(hitInfo);
+        //Debug.Log(hitInfo);
         if (hitInfo.gameObject.tag == "Floor") {
             Object.Destroy(this.gameObject);
             return;  

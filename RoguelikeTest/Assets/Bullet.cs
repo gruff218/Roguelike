@@ -5,20 +5,24 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public GameObject Player;
+    GameObject player;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
     }
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         if (hitInfo.gameObject.name == "Player") {
             return;  
 		}
+        if (hitInfo.gameObject.layer != 9) {
+            return;  
+		}
         Enemy e = hitInfo.GetComponent<Enemy>();
         if (e != null)
         {
-            e.takeDamage(30);
+            e.takeDamage(player.GetComponent<PlayerCombat>().bulletDamage);
         }
         Destroy(gameObject);
 
@@ -27,7 +31,7 @@ public class Bullet : MonoBehaviour
 
     }
     void OnCollisionEnter2D(Collision2D hitInfo) {
-        Debug.Log(hitInfo);
+        //Debug.Log(hitInfo);
         if (hitInfo.gameObject.tag == "Floor") {
             Object.Destroy(this.gameObject);
             return;  

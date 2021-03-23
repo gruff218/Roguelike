@@ -6,9 +6,13 @@ public class CameraFolloiw : MonoBehaviour
 {
 	public Transform target;
 	public Vector3 offset;
-	[Range(1,10)]
+	[Range(0,10)]
 	public float smoothFactor;
+	public int cameraSize = 6;
 
+	void Start() {
+		GetComponent<Camera>().orthographicSize = cameraSize;
+	}
 
 	void FixedUpdate() {
 		Follow();

@@ -8,6 +8,10 @@ TagManager:
   - Floor
   - Opossum
   - Bullet
+  - AttackUp
+  - RangedUp
+  - AttackSpeedUp
+  - RangedSpeedUp
   layers:
   - Default
   - TransparentFX
@@ -16,11 +20,11 @@ TagManager:
   - Water
   - UI
   - Bullet
-  - 
+  - EnemyBullet
   - Player
   - Enemy
   - Obstacle
-  - 
+  - PowerUp
   - 
   - 
   - 
