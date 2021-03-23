@@ -12,9 +12,10 @@ public class OpossumAI : MonoBehaviour
     public float size = 5f;
 
     public Transform enemyGFX;
+    public Transform player;
 
     public GameObject bullet;
-
+    public float bulletSpeed = 15f;
     public float shootSpeed;
     float timeNextShot;
 
@@ -38,8 +39,13 @@ public class OpossumAI : MonoBehaviour
 
     void Update() {
         if (timeNextShot <= 0) {
-              Instantiate(bullet, transform.position, Quaternion.identity);
-              timeNextShot = shootSpeed;
+            Vector2 target = new Vector2(player.position.x, player.position.y);
+            Vector2 myPos = new Vector2(transform.position.x, transform.position.y + 1);
+            Vector2 direction = target - myPos;
+            direction.Normalize();
+            GameObject curBullet = (GameObject)Instantiate(bullet, transform.position, Quaternion.identity);
+            curBullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+            timeNextShot = shootSpeed;
 		} else {
             timeNextShot -= Time.deltaTime;  
 		}

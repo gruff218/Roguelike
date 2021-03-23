@@ -98,6 +98,13 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D hitInfo) {
+        if (hitInfo.gameObject.tag == "Bullet") {
+              Debug.Log("Hello");
+		}
+        
+	}
+
     void Die() {
         Debug.Log("Died");
         GetComponent<Collider2D>().enabled = false;
