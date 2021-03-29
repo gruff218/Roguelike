@@ -35,10 +35,12 @@ public class BirdAI : MonoBehaviour
     }
 
     void UpdatePath() {
-        if (seeker.IsDone()) {
-            seeker.StartPath(rb.position, target.position, OnPathComplete);  
-            
-		}
+        if (Vector3.Distance(this.transform.position, target.transform.position) < 100) {
+            if (seeker.IsDone()) {
+                seeker.StartPath(rb.position, target.position, OnPathComplete);  
+                
+		    }
+        }
 	}
 
     void OnPathComplete(Path p) {
@@ -57,6 +59,7 @@ public class BirdAI : MonoBehaviour
             return;  
 		}
         
+        //Debug.Log(target.position.x);
 
         if (currentWaypoint >= path.vectorPath.Count) {
             reachedEndOfPath = true;  
