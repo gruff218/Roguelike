@@ -5,11 +5,12 @@ using UnityEngine;
 public class GenerateLevel : MonoBehaviour
 {
 
-    
+    int prevTileType = 0;
     // Start is called before the first frame update
     void Start()
     {
         GenLevel(5, 5);
+        
     }
 
     // Update is called once per frame
@@ -21,33 +22,86 @@ public class GenerateLevel : MonoBehaviour
     public void GenLevel(int gridX, int gridY) {
         int[,] level = new int[gridY, gridX];
         
-        level[0, 0] = 1;
+        
         int y = 0;
-        int x = 1;
+        int x = Random.Range(0, gridX);
+        level[0, x] = 1;
+        int startX = x;
+        int startY = y;
 
-        int dir = 1;
+        int dir = 0;
+
+        Debug.Log("Start at pos: " + x);
+
+        
 
         //Debug.Log(getPos(7, gridX, gridY)[0] + " " + getPos(7, gridX, gridY)[1]);
         while(y * gridX + x < gridX * gridY) {
-
-            
             if (x < 0) {
                 level[y, 0] = 2;
                 y++;
                 x = 0;
+                prevTileType = 2;
+                dir = 0;
 			} else if (x >= gridX) {
                 level[y, gridX - 1] = 2;
                 y++;
                 x = gridX - 1;
-			}
-            int rand = Random.Range(0, 5);
+                prevTileType = 2;
+                dir = 0;
+			} else {
+                level[y, x] = 1;
+                prevTileType = 1;
+                if (dir == 0) {
+                    level[y, x] = 3;
+                    prevTileType = 3;
+                    int rand = Random.Range(0, 5);
+                
+                    if (rand <= 1) {
+                        dir = 1;
+			        } else if (rand <= 3) {
+                        dir = -1;
+			        } else {
+                        dir = 0;        
+			    	}
+			    } else {
+                    int rand = Random.Range(0, 4);
+                    if (rand == 0) {
+                        dir = 0;        
+			    	}
+			    }
+
+                if (dir == 0) {
+                    level[y, x] = 2;
+                    prevTileType = 2;
+                    y += 1;
+			    }
+
+                x += dir;
+            }
             
-            if (rand <= 1) {
-                level[y, x] = 1;
-			} else if (rand <= 3) {
-                level[y, x] = 1;
-			}
+            
+            
 		}
+
+        level[startY, startX] = 4;
+        if (x < 0) {
+            x = 0;  
+		} else if (x >= gridX) {
+            x = gridX - 1;  
+		}
+        if (y >= gridY) {
+            y = gridY - 1;  
+		}
+        level[y, x] = 5;
+        
+        for (int row = 0; row < gridY; row++)
+        {
+            string temp = "";
+            for (int col = 0; col < gridX; col++)               
+                temp += (level[row, col] + " ");
+            Debug.Log(temp);
+         } 
 
 	}
 
