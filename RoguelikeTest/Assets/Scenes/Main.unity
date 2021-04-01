@@ -279,6 +279,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6218420426109672157, guid: 9946f5bb682c3cb40a774bcf57aca79b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9946f5bb682c3cb40a774bcf57aca79b, type: 3}
 --- !u!1 &142962749
@@ -297,7 +302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &142962750
 Transform:
   m_ObjectHideFlags: 0
@@ -429,6 +434,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Opossum (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653259534674220758, guid: 353d0268d8e191944a05cee2beca491c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5044139937050568575, guid: 353d0268d8e191944a05cee2beca491c,
         type: 3}
@@ -1095,7 +1105,7 @@ MonoBehaviour:
   maxHealth: 100
   damageRate: 2
   currentHealth: 0
-  attackReach: 5
+  attackReach: 1.5
   healthBar: {fileID: 2074505151}
   speed: 20
   firePoint: {fileID: 787114923}
@@ -4027,6 +4037,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bird (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6218420426109672157, guid: 9946f5bb682c3cb40a774bcf57aca79b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9946f5bb682c3cb40a774bcf57aca79b, type: 3}

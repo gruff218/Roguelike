@@ -67,10 +67,12 @@ public class PlayerCombat : MonoBehaviour
         animator.SetTrigger("Attack");
         Vector2 target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
         Vector2 current = new Vector2(transform.position.x, transform.position.y);
-        if ((current - target).magnitude > attackReach) {
-            target.Normalize();
-            target = target * attackReach;
-            target = target + current;
+        Vector2 delta = target - current;
+        if (delta.magnitude > attackReach) {
+            
+            delta.Normalize();
+            delta = delta * attackReach;
+            target = delta + current;
 		}
         attackPoint.position = (Vector3)(target);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
