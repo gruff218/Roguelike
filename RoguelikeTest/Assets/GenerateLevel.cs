@@ -39,19 +39,34 @@ public class GenerateLevel : MonoBehaviour
         while(y * gridX + x < gridX * gridY) {
             if (x < 0) {
                 level[y, 0] = 2;
-                y++;
+                
                 x = 0;
                 prevTileType = 2;
                 dir = 0;
+                if (y > 0) {
+                    if (level[y - 1, 0] == 2 || level[y - 1, 0] == 4) {
+                        level[y, 0] = 4;
+                        prevTileType = 4;
+					}
+				}
+                Debug.Log(x + ", " + y + "  52");
+                y++;
 			} else if (x >= gridX) {
                 level[y, gridX - 1] = 2;
-                y++;
+                
                 x = gridX - 1;
                 prevTileType = 2;
                 dir = 0;
+                if (y > 0) {
+                    if (level[y - 1, x] == 2 || level[y - 1, x] == 4) {
+                        level[y, x] = 4;
+                        prevTileType = 4;
+					}
+				}
+                Debug.Log(x + ", " + y + "  65");
+                y++;
 			} else {
-                level[y, x] = 1;
-                prevTileType = 1;
+                
                 if (dir == 0) {
                     level[y, x] = 3;
                     prevTileType = 3;
@@ -64,7 +79,15 @@ public class GenerateLevel : MonoBehaviour
 			        } else {
                         dir = 0;        
 			    	}
+
+                    if ((x + dir < 0 || x + dir >= gridX) && rand % 2 == 0) {
+                        dir = dir * -1;           
+					}
+                    
+                    
 			    } else {
+                    level[y, x] = 1;
+                    prevTileType = 1;
                     int rand = Random.Range(0, 4);
                     if (rand == 0) {
                         dir = 0;        
@@ -72,9 +95,17 @@ public class GenerateLevel : MonoBehaviour
 			    }
 
                 if (dir == 0) {
-                    level[y, x] = 2;
-                    prevTileType = 2;
-                    y += 1;
+                    Debug.Log(prevTileType);
+                    if (prevTileType == 3 || prevTileType == 4 || prevTileType == 2) {
+                        level[y, x] = 4;
+                        prevTileType = 4;
+                        y += 1;
+					} else {
+                        level[y, x] = 2;
+                        prevTileType = 2;
+                        y += 1;
+                        Debug.Log(x + ", " + y);
+                    }
 			    }
 
                 x += dir;
@@ -84,7 +115,7 @@ public class GenerateLevel : MonoBehaviour
             
 		}
 
-        level[startY, startX] = 4;
+        level[startY, startX] = 5;
         if (x < 0) {
             x = 0;  
 		} else if (x >= gridX) {
@@ -93,7 +124,7 @@ public class GenerateLevel : MonoBehaviour
         if (y >= gridY) {
             y = gridY - 1;  
 		}
-        level[y, x] = 5;
+        level[y, x] = 6;
         
         for (int row = 0; row < gridY; row++)
         {
