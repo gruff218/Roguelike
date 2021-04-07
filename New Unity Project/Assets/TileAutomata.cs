@@ -26,7 +26,7 @@ public class TileAutomata : MonoBehaviour
         Queue<int> check = new Queue<int>();
         
         
-        clearMap(false);
+        //clearMap(false);
         width = tmapSize.x;
         height = tmapSize.y;
         if (terrainMap == null)
@@ -131,13 +131,15 @@ public class TileAutomata : MonoBehaviour
                 if (terrainMap[x,y]=='X')
                 {
                     tcounter += arrx * 12 + x;
+                    Debug.Log("A tile was placed at " + (arrx * 12 + x) + ", " + (-arry*8-y));
                     map.SetTile(new Vector3Int(arrx*12+x, -arry*8-y, 0), tile);
                 }
-                if (terrainMap[x, y] == 'O')
+                /*if (terrainMap[x, y] == 'O')
                 {
                     tcounter+=arrx*12+x;
+                    Debug.Log("A tile was placed at " + (arrx * 12 + x) + ", " + (-arry*8-y));
                     map.SetTile(new Vector3Int(arrx*12+x, -arry*8-y, 0), eTile);
-                }
+                }*/
             }
         }
         Debug.Log(tcounter);
@@ -155,10 +157,11 @@ public class TileAutomata : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        array[0] = "RRRRRRRRRRRRRRRROOOOOOOOOOOOOOOOOORROOOOORROOOOOOOOORRRROOOOOOOXRRRRROOOOOXXXRRRRXXOXXXXXXXXXXXX";
+        //array[0] = "RRRRRRRRRRRRRRRROOOOOOOOOOOOOOOOOORROOOOORROOOOOOOOORRRROOOOOOOXRRRRROOOOOXXXRRRRXXOXXXXXXXXXXXX";
+        array[0] = "XXRRORXOROXXXRROOOROORROOOROOOOOOOROOOOOOROOOOOOOOOOROOROOOOOOOXROOXROROOOXXOORXXOOOXXXXXXXXXXXX";
         doSim(0,0,2);
-        doSim(1, 0, 2);
-        doSim(0, 1, 2);
+        //doSim(1, 0, 2);
+        //doSim(0, 1, 2);
     }
 
     // Update is called once per frame

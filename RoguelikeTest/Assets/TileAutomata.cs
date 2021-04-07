@@ -249,7 +249,7 @@ public class TileAutomata : MonoBehaviour
                 }
             }
         }
-        Debug.Log(tcounter);
+        //Debug.Log(tcounter);
 
     }
 
@@ -273,21 +273,7 @@ public class TileAutomata : MonoBehaviour
         array5[0] = "XXRRORXOROXXXRROOOROORROOOROOOOOOOROOOOOOROOOOOOOOOOROOROOOOOOOXROOXROROOOXXOORXXOOOXXXXXXXXXXXX";
         array6[0] = "XXRRORXOROXXXRROOOROORROOOROOOOOOOROOOOOOROOOOOOOOOOROOROOOOOOOXROOXROROOOXXOORXXOOOXXXXXXXXXXXX";
         array0[0] = "XXXRXXRXXXRXXRROOROORROXRROOOORORORXXOOOOOOOOOORXOOORORROOXXROOXOOOOOROXXORXXROOXRORXXRXXXRXXRXX";
-        for (int i = 0; i < 7; i++)
-        {
-            for (int j = 0; j < 7; j++)
-            {
-                if (i == 0 | j == 0 | i == 6 | j == 6)
-                {
-                    doSim(i, j, 7);
-                }
-                else
-                {
-                    doSim(i, j, 2);
-                }
-
-            }
-        }
+        GenLevel();
     }
 
     // Update is called once per frame
@@ -295,4 +281,30 @@ public class TileAutomata : MonoBehaviour
     {
 
     }
+
+    public void GenLevel() {
+        int[,] level = GetComponent<GenerateLevel>().GenLevel(5, 5);
+        for (int row = 0; row < 5; row++)
+        {
+            string temp = "";
+            for (int col = 0; col < 5; col++)               
+                temp += (level[row, col] + " ");
+            Debug.Log(temp);
+         } 
+        for (int i = 0; i < 7; i++)
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                if (i == 0 || j == 0 || i == 6 || j == 6)
+                {
+                    doSim(i, j, 7);
+                }
+                else
+                {
+                    doSim(i, j, level[j - 1, i - 1]);
+                }
+
+            }
+        }
+	}
 }

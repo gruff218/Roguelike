@@ -19,7 +19,7 @@ public class GenerateLevel : MonoBehaviour
         
     }
 
-    public void GenLevel(int gridX, int gridY) {
+    public int[,] GenLevel(int gridX, int gridY) {
         int[,] level = new int[gridY, gridX];
         
         
@@ -31,7 +31,7 @@ public class GenerateLevel : MonoBehaviour
 
         int dir = 0;
 
-        Debug.Log("Start at pos: " + x);
+        //Debug.Log("Start at pos: " + x);
 
         
 
@@ -49,7 +49,7 @@ public class GenerateLevel : MonoBehaviour
                         prevTileType = 4;
 					}
 				}
-                Debug.Log(x + ", " + y + "  52");
+                //Debug.Log(x + ", " + y + "  52");
                 y++;
 			} else if (x >= gridX) {
                 level[y, gridX - 1] = 2;
@@ -63,7 +63,7 @@ public class GenerateLevel : MonoBehaviour
                         prevTileType = 4;
 					}
 				}
-                Debug.Log(x + ", " + y + "  65");
+                //Debug.Log(x + ", " + y + "  65");
                 y++;
 			} else {
                 
@@ -95,7 +95,7 @@ public class GenerateLevel : MonoBehaviour
 			    }
 
                 if (dir == 0) {
-                    Debug.Log(prevTileType);
+                    //Debug.Log(prevTileType);
                     if (prevTileType == 3 || prevTileType == 4 || prevTileType == 2) {
                         level[y, x] = 4;
                         prevTileType = 4;
@@ -104,7 +104,7 @@ public class GenerateLevel : MonoBehaviour
                         level[y, x] = 2;
                         prevTileType = 2;
                         y += 1;
-                        Debug.Log(x + ", " + y);
+                        //Debug.Log(x + ", " + y);
                     }
 			    }
 
@@ -131,9 +131,10 @@ public class GenerateLevel : MonoBehaviour
             string temp = "";
             for (int col = 0; col < gridX; col++)               
                 temp += (level[row, col] + " ");
-            Debug.Log(temp);
+            //Debug.Log(temp);
          } 
 
+         return level;
 	}
 
     int[] getPos(int pointer, int gridX, int gridY) {
