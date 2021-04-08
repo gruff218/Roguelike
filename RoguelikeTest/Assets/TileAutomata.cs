@@ -11,6 +11,8 @@ public class TileAutomata : MonoBehaviour
     public Vector3Int tmapSize;
     public Tilemap map;
     public Tile tile;
+    public GameObject opossum;
+    public GameObject bird;
     int width;
     int height;
     private string[] array0 = new string[5];
@@ -164,7 +166,11 @@ public class TileAutomata : MonoBehaviour
 
                     terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = 'X';
                 }
-
+                if (terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] == 'E') {
+                    if (RandomNumber(1, 6) != 1) {
+                        terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = 'O';
+					}        
+				}
             }
         }
 
@@ -266,6 +272,15 @@ public class TileAutomata : MonoBehaviour
                     tcounter += arrx * 12 + x;
                     map.SetTile(new Vector3Int(arrx * 12 + x, -arry * 8 - y, 0), tile);
                 }
+                if (terrainMap[x, y] == 'E') {
+                    Vector3 temp = new Vector3(0, 1, 0);
+                    GameObject enemy = bird;
+                    if (RandomNumber(1, 2) == 1) {
+                        enemy = opossum;           
+					}
+                    
+                    Instantiate(enemy, map.layoutGrid.CellToWorld(new Vector3Int(arrx * 12 + x, -arry * 8 - y, 0)) + temp, Quaternion.identity);
+				}
             }
         }
         //Debug.Log(tcounter);
@@ -284,15 +299,15 @@ public class TileAutomata : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        array1[0] = "RRRRRRRRRRRRRRRROOOOOOOOOOOOOOOOOORROOOOORROOOOOOOOORRRROOOOOOOXRRRRROOOOOXXXRRRRXXOXXXXXXXXXXXX";
-        array1[1] = "XXRRORXOROXXXRROOOROORROOOROOOOOOOROOOOOOROOOOOOOOOOROOROOOOOOOXROOXROROOOXXOORXXOOOXXXXXXXXXXXX";
-        array1[2] = "RRRRRRXXRRROORRRRROOOOOOOORRROOOOOOOOOOROOOROOOOOOOOOORROOOOOOOOOXRRRROOXOOOXXXRRRRRXXXXXXXXXXXX";
-        array2[0] = "XXXOXRORXOXXXROOOROOROOXOROOOOOOOOOOOOOOOOOOOOOOOOOOROOXXROOXOOOXROOOOOORROOOOOOOOOXRXXOOORXOOXR";
-        array3[0] = "XXOOOXRROOXXRROOOOOOOOOXROOOOOOOOOOOOOOOOOOOOOOOOOOXROROORROOOXXOOXROOOOOOROORXXROOOXXXXXXXXXXXX";
-        array4[0] = "XXXROORXORXXXROOOOOROORXROXOOROOOORXOOOOOOORXOOOOOORXXOOOOOOXROOOOOOOOORXROOOOOOORRXXXRRXOOORXXX";
-        array5[0] = "XXRRORXOROXXXRROOOROORROOOROOOOOOOROOOOOOROOOOOOOOOOROOROOOOOOOXROOXROROOOXXOORXXOOOXXXXXXXXXXXX";
-        array6[0] = "XXRRORXOROXXXRROOOROORROOOROOOOOOOROOOOOOROOOOOOOOOOROOROOOOOOOXROOXROROOOXXOORXXOOOXXXXXXXXXXXX";
-        array0[0] = "XXXRXXRXXXRXXRROOROORROXRROOOORORORXXOOOOOOOOOORXOOORORROOXXROOXOOOOOROXXORXXROOXRORXXRXXXRXXRXX";
+        array1[0] = "RRRRRRRRRRRRRRRROOOOOOEOOOOOOOOOOORROOEOORROOOOOOOOORRRROOOOOOOXRRRRROOEOOXXXRRRRXXOXXXXXXXXXXXX";
+        array1[1] = "XXRRORXOROXXXRROOEROORROOOROOEOOOOROOOOOOROOOOOOOOOOROOROOOOOOOXROOXROROEOXXOORXXOOOXXXXXXXXXXXX";
+        array1[2] = "RRRRRRXXRRROORRRRROOEOOOOORRROOOOOEOOOOROOOROOOOOOOOOORROOOOEOOOOXRRRROOXOOOXXXRRRRRXXXXXXXXXXXX";
+        array2[0] = "XXXOXRORXOXXXROOOROOROOXOROOOOOOOOEOOOOOOOOOOEOOOOOOROOXXROOXOOOXROOOOOORROOOOOOEOOXRXXOOORXOOXR";
+        array3[0] = "XXOOOXRROOXXRROOOOOOOOOXROOOEOOOOOOOOOOOOEOOOOOOOOOXROROORROOOXXOOXROOOOOOROORXXREOOXXXXXXXXXXXX";
+        array4[0] = "XXXROORXORXXXROOEOOROORXROXOOROOEORXOOOOOOORXOOOOOORXXOOOOOOXROOOEOOOOORXROOOOOOORRXXXRRXOOORXXX";
+        array5[0] = "XXRRORXOROXXXRROEOROORROOOROOEOOOOROOOOOOROOOOOOOOOOROOROOOOOOOXROOXROROOOXXOORXXOOEXXXXXXXXXXXX";
+        array6[0] = "XXRRORXOROXXXRROOOROORROOOROOOOOOOROOEOOOROOOOOOOOEOROOROOOOOOOXROOXROREOOXXOORXXOOOXXXXXXXXXXXX";
+        array0[0] = "XXXRXXRXXXRXXRROOROORROXRREOOORORORXXOOOOOOOOOORXOOORORROOXXROEXOOOOOROXXORXXREOXRORXXRXXXRXXRXX";
         GenLevel();
     }
 
@@ -313,7 +328,6 @@ public class TileAutomata : MonoBehaviour
                 temp += (level[row, col] + " ");
                 if (level[row, col] == 5) {
                     startX = 12*col + 18;
-                    Debug.Log(startX);
 				}
             }
             Debug.Log(temp);

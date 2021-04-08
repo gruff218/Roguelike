@@ -1049,7 +1049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &843258239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2636,6 +2636,8 @@ MonoBehaviour:
   tmapSize: {x: 12, y: 8, z: 0}
   map: {fileID: 1813485688}
   tile: {fileID: 11400000, guid: 57aa0853ed9d94b4bbff305bc638b480, type: 2}
+  opossum: {fileID: 3653259534674220758, guid: 353d0268d8e191944a05cee2beca491c, type: 3}
+  bird: {fileID: 6218420426109672157, guid: 9946f5bb682c3cb40a774bcf57aca79b, type: 3}
   player: {fileID: 820667352}
 --- !u!114 &1921742482
 MonoBehaviour:
