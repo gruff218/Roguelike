@@ -37,17 +37,19 @@ public class OpossumAI : MonoBehaviour
 
 
     void Update() {
-        if (timeNextShot <= 0) {
-            Vector2 target = new Vector2(player.position.x, player.position.y);
-            Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
-            Vector2 direction = target - myPos;
-            direction.Normalize();
-            GameObject curBullet = (GameObject)Instantiate(bullet, transform.position, Quaternion.identity);
-            curBullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-            timeNextShot = shootSpeed;
-		} else {
-            timeNextShot -= Time.deltaTime;  
-		}
+        if (GetComponent<Enemy>().getHealth() > 0) {
+            if (timeNextShot <= 0) {
+                Vector2 target = new Vector2(player.position.x, player.position.y);
+                Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
+                Vector2 direction = target - myPos;
+                direction.Normalize();
+                GameObject curBullet = (GameObject)Instantiate(bullet, transform.position, Quaternion.identity);
+                curBullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+                timeNextShot = shootSpeed;
+		    } else {
+                timeNextShot -= Time.deltaTime;  
+		    }
+        }
 	}
 
     // Update is called once per frame

@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
 		}
         if (this.name == "Bird") {
             GetComponent<BirdAI>().enabled = false;
-		} else if (this.name == "Opoussum") {
+		} else if (this.name == "Opossum") {
             GetComponent<OpossumAI>().enabled = false;
 		}
         
@@ -88,5 +88,9 @@ public class Enemy : MonoBehaviour
     
     void Update() {
         animator.SetFloat("Velocity", rb.velocity.magnitude);
+	}
+
+    public int getHealth() {
+        return currentHealth;
 	}
 }

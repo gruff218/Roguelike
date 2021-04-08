@@ -275,7 +275,7 @@ public class TileAutomata : MonoBehaviour
                 if (terrainMap[x, y] == 'E') {
                     Vector3 temp = new Vector3(0, 1, 0);
                     GameObject enemy = bird;
-                    if (RandomNumber(1, 2) == 1) {
+                    if (RandomNumber(1, 3) == 1) {
                         enemy = opossum;           
 					}
                     
