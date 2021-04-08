@@ -6,6 +6,7 @@ public class GenerateLevel : MonoBehaviour
 {
 
     int prevTileType = 0;
+    public Transform player;
     // Start is called before the first frame update
     void Start()
     {
@@ -124,7 +125,11 @@ public class GenerateLevel : MonoBehaviour
         if (y >= gridY) {
             y = gridY - 1;  
 		}
-        level[y, x] = 6;
+        if (level[y - 1, x] == 2 || level[y - 1, x] == 4) {
+            level[y, x] = 4;
+		} else {
+            level[y, x] = 2;  
+		}
         
         for (int row = 0; row < gridY; row++)
         {

@@ -21,6 +21,7 @@ public class TileAutomata : MonoBehaviour
     private string[] array5 = new string[5];
     private string[] array6 = new string[5];
     private readonly System.Random r = new System.Random();
+    public Transform player;
     public int RandomNumber(int min, int max)
     {
         return r.Next(min, max);
@@ -254,7 +255,7 @@ public class TileAutomata : MonoBehaviour
                 }
             }
         }
-        Debug.Log(tcounter);
+        //Debug.Log(tcounter);
         tcounter = 0;
         for (int x = 0; x < width; x++)
         {
@@ -303,11 +304,18 @@ public class TileAutomata : MonoBehaviour
 
     public void GenLevel() {
         int[,] level = GetComponent<GenerateLevel>().GenLevel(5, 5);
+        float startX = 0f;
+        float startY = -10.5f;
         for (int row = 0; row < 5; row++)
         {
             string temp = "";
-            for (int col = 0; col < 5; col++)               
+            for (int col = 0; col < 5; col++) {
                 temp += (level[row, col] + " ");
+                if (level[row, col] == 5) {
+                    startX = 12*col + 18;
+                    Debug.Log(startX);
+				}
+            }
             Debug.Log(temp);
          } 
         for (int i = 0; i < 7; i++)
@@ -325,5 +333,7 @@ public class TileAutomata : MonoBehaviour
 
             }
         }
+        
+        player.position = new Vector3(startX, startY, 0);
 	}
 }
