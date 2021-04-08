@@ -42,7 +42,7 @@ public class TileAutomata : MonoBehaviour
                     terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = array2[0][i];
                     if (array2[0][i] == 'R')
                     {
-                        if (RandomNumber(1, 3) == 2)
+                        if (RandomNumber(1, 6) == 2|RandomNumber(1,6)==3 | RandomNumber(1, 6) == 4)
                         {
                             terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = 'X';
 
@@ -59,7 +59,7 @@ public class TileAutomata : MonoBehaviour
                     terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = array3[0][i];
                     if (array3[0][i] == 'R')
                     {
-                        if (RandomNumber(1, 3) == 2)
+                        if (RandomNumber(1, 6) == 2 | RandomNumber(1, 6) == 3 | RandomNumber(1, 6) == 4)
                         {
                             terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = 'X';
 
@@ -76,7 +76,7 @@ public class TileAutomata : MonoBehaviour
                     terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = array6[0][i];
                     if (array6[0][i] == 'R')
                     {
-                        if (RandomNumber(1, 3) == 2)
+                        if (RandomNumber(1, 6) == 2 | RandomNumber(1, 6) == 3 | RandomNumber(1, 6) == 4)
                         {
                             terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = 'X';
 
@@ -93,7 +93,7 @@ public class TileAutomata : MonoBehaviour
                     terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = array5[0][i];
                     if (array5[0][i] == 'R')
                     {
-                        if (RandomNumber(1, 3) == 2)
+                        if (RandomNumber(1, 6) == 2 | RandomNumber(1, 6) == 3 | RandomNumber(1, 6) == 4)
                         {
                             terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = 'X';
 
@@ -110,8 +110,8 @@ public class TileAutomata : MonoBehaviour
                     terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = array4[0][i];
                     if (array4[0][i] == 'R')
                     {
-                        if (RandomNumber(1, 3) == 2)
-                        {
+                        if (RandomNumber(1, 6) == 2 | RandomNumber(1, 6) == 3 | RandomNumber(1, 6) == 4)
+                            {
                             terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = 'X';
 
                         }
@@ -124,10 +124,11 @@ public class TileAutomata : MonoBehaviour
                 }
                 if (type == 1)
                 {
-                    terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = array1[0][i];
+                    int x = RandomNumber(0, 3);
+                    terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = array1[x][i];
                     if (array1[0][i] == 'R')
                     {
-                        if (RandomNumber(1, 3) == 2)
+                        if (RandomNumber(1, 6) == 2 | RandomNumber(1, 6) == 3 | RandomNumber(1, 6) == 4)
                         {
                             terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = 'X';
 
@@ -141,10 +142,11 @@ public class TileAutomata : MonoBehaviour
                 }
                 if (type == 0)
                 {
-                    terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = array0[0][i];
+                    int x = RandomNumber(0, 1);
+                    terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = array0[x][i];
                     if (array0[0][i] == 'R')
                     {
-                        if (RandomNumber(1, 3) == 2)
+                        if (RandomNumber(1, 6) == 2 | RandomNumber(1, 6) == 3 | RandomNumber(1, 6) == 4)
                         {
                             terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = 'X';
 
@@ -238,6 +240,22 @@ public class TileAutomata : MonoBehaviour
             }
         }
         int tcounter = 0;
+        for (int i = 0; i< 96; i++)
+        {
+            if (terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] == 'X')
+            {
+                if (i % 12 != 0 & i % 12 != 11 & i >= 12 & i < 84)
+                {
+                    if (terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)) - 1, (int)(Math.Floor(i / 12.0))] == 'O' & terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)) + 1, (int)(Math.Floor(i / 12.0))] == 'O' & terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0)) - 1] == 'O' & terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0)) + 1] == 'O')
+                    {
+                        terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = 'O';
+                        tcounter++;
+                    }
+                }
+            }
+        }
+        Debug.Log(tcounter);
+        tcounter = 0;
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
@@ -267,6 +285,7 @@ public class TileAutomata : MonoBehaviour
     {
         array1[0] = "RRRRRRRRRRRRRRRROOOOOOOOOOOOOOOOOORROOOOORROOOOOOOOORRRROOOOOOOXRRRRROOOOOXXXRRRRXXOXXXXXXXXXXXX";
         array1[1] = "XXRRORXOROXXXRROOOROORROOOROOOOOOOROOOOOOROOOOOOOOOOROOROOOOOOOXROOXROROOOXXOORXXOOOXXXXXXXXXXXX";
+        array1[2] = "RRRRRRXXRRROORRRRROOOOOOOORRROOOOOOOOOOROOOROOOOOOOOOORROOOOOOOOOXRRRROOXOOOXXXRRRRRXXXXXXXXXXXX";
         array2[0] = "XXXOXRORXOXXXROOOROOROOXOROOOOOOOOOOOOOOOOOOOOOOOOOOROOXXROOXOOOXROOOOOORROOOOOOOOOXRXXOOORXOOXR";
         array3[0] = "XXOOOXRROOXXRROOOOOOOOOXROOOOOOOOOOOOOOOOOOOOOOOOOOXROROORROOOXXOOXROOOOOOROORXXROOOXXXXXXXXXXXX";
         array4[0] = "XXXROORXORXXXROOOOOROORXROXOOROOOORXOOOOOOORXOOOOOORXXOOOOOOXROOOOOOOOORXROOOOOOORRXXXRRXOOORXXX";
