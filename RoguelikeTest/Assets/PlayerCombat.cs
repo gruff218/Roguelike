@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -37,11 +38,14 @@ public class PlayerCombat : MonoBehaviour
 
     public GameManager gameManager;
 
+    List<float> weakness = new List<float>();
+
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        weakness.Add(1.0f);
     }
 
     // Update is called once per frame
@@ -61,6 +65,12 @@ public class PlayerCombat : MonoBehaviour
 			}
 		}
         
+        if (weakness.Count > 0) {
+            if (Time.time - weakness[0] > 5.0f) {
+                weakness.Remove(weakness[0]); 
+                Debug.Log("Weakness removed! Total amount: " + weakness.Count);
+			}  
+		}
     }
         
     void Attack() {
@@ -77,11 +87,11 @@ public class PlayerCombat : MonoBehaviour
         attackPoint.position = (Vector3)(target);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        
+        int dmg = (int)(attackDamage * Math.Pow(0.5, weakness.Count));
 
         foreach(Collider2D enemy in hitEnemies) {
             if (!enemy.isTrigger){
-                enemy.GetComponent<Enemy>().takeDamage(attackDamage);
+                enemy.GetComponent<Enemy>().takeDamage(dmg);
 			}
             
 		}
@@ -122,7 +132,7 @@ public class PlayerCombat : MonoBehaviour
 	}
 
     private void OnTriggerEnter2D(Collider2D enemy) {
-
+        Debug.Log("called");
         if (Time.time >= nextPower) {
             if (enemy.tag == "AttackUp") {
                 Debug.Log("Attack was boosted");
@@ -161,13 +171,20 @@ public class PlayerCombat : MonoBehaviour
                 nextDamageTime = Time.time + 1f/damageRate;
 			}
             
+            
         }
+        
     }
 
     void OnCollisionEnter2D(Collision2D hitInfo) {
         if (hitInfo.gameObject.tag == "Bullet") {
               TakeDamage(30);
               Destroy(hitInfo.gameObject);
+		}
+        if (hitInfo.gameObject.tag == "Spell") {
+            weakness.Add(Time.time);
+            Destroy(hitInfo.gameObject);
+            Debug.Log("Weakness added! Total amount: " + weakness.Count);
 		}
         
 	}

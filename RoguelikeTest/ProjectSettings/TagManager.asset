@@ -12,6 +12,8 @@ TagManager:
   - RangedUp
   - AttackSpeedUp
   - RangedSpeedUp
+  - Spell
+  - Mage
   layers:
   - Default
   - TransparentFX
