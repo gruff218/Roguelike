@@ -30,7 +30,13 @@ public class GenerateLevel : MonoBehaviour
         int startX = x;
         int startY = y;
 
-        int dir = 0;
+        int dir = -1;
+
+        float temp = Random.Range(0, 2);
+        if (temp >= 1)
+        {
+            dir = 1;
+        }
 
         //Debug.Log("Start at pos: " + x);
 
