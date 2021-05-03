@@ -22,13 +22,15 @@ public class TileAutomata : MonoBehaviour
     private string[] array4 = new string[5];
     private string[] array5 = new string[5];
     private string[] array6 = new string[5];
+    private string[] array8 = new string[5];
+    private string[] array9 = new string[30];
     private readonly System.Random r = new System.Random();
     public Transform player;
     public int RandomNumber(int min, int max)
     {
         return r.Next(min, max);
     }
-    public void doSim(int arrx, int arry, int type)
+    public void doSim(int arrx, int arry, int type, int num)
     {
         Queue<int> check = new Queue<int>();
 
@@ -165,6 +167,14 @@ public class TileAutomata : MonoBehaviour
                 {
 
                     terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = 'X';
+                }
+                if (type==8)
+                {
+                    terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = array8[0][i];
+                }
+                if (type == 9)
+                {
+                    terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] = array9[num][i];
                 }
                 if (terrainMap[i - 12 * (int)(Math.Floor(i / 12.0)), (int)(Math.Floor(i / 12.0))] == 'E') {
                     if (RandomNumber(1, 6) != 1) {
@@ -308,6 +318,17 @@ public class TileAutomata : MonoBehaviour
         array5[0] = "XXRRORXOROXXXRROEOROORROOOROOEOOOOROOOOOOROOOOOOOOOOROOROOOOOOOXROOXROROOOXXOORXXOOEXXXXXXXXXXXX";
         array6[0] = "XXRRORXOROXXXRROOOROORROOOROOOOOOOROOEOOOROOOOOOOOEOROOROOOOOOOXROOXROREOOXXOORXXOOOXXXXXXXXXXXX";
         array0[0] = "XXXRXXRXXXRXXRROOROORROXRREOOORORORXXOOOOOOOOOORXOOORORROOXXROEXOOOOOROXXORXXREOXRORXXRXXXRXXRXX";
+        array8[0] = "XXXXXOOOXXXXXXXXXOOOXXXXXXXXXOOOXXXXXXXXXOOOXXXXXXXXXOOOXXXXXXXXXOOOXXXXXXXXXOOOXXXXXXXXXOOOXXXX";
+        array9[1] = "OXXXXXXXXXXOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO";
+        array9[2] = "OOOOOOOOOOOOOXXXXXXXXXXOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO";
+        array9[3] = "OOOOOOOOOOOOOOOOOOOOOOOOOXXXXXXXXXXOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO";
+        array9[4] = "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOXXXXXXXXXXOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO";
+        array9[5] = "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOXXXXXXXXXXOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO";
+        array9[6] = "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOXXXXXXXXXXOOOOOOOOOOOOOOOOOOOOOOOOO";
+        array9[7] = "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOXXXXXXXXXXOOOOOOOOOOOOO";
+        array9[8] = "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOXXXXXXXXXXO";
+        array9[28] = "OOOOOOOOOOOOOXXXXXXXXXXOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOXXXXXXXXXXO";
+        array9[17] = "OXXXXXXXXXXOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOXXXXXXXXXXOOOOOOOOOOOOO";
         GenLevel();
     }
 
@@ -331,18 +352,66 @@ public class TileAutomata : MonoBehaviour
 				}
             }
             Debug.Log(temp);
-         } 
+         }
+        int x = 7;
+        int y = 7;
         for (int i = 0; i < 7; i++)
         {
-            for (int j = 0; j < 7; j++)
+            for (int j = 0; j < 11; j++)
             {
-                if (i == 0 || j == 0 || i == 6 || j == 6)
+                if (i == 0 || j == 0 || i == 6 || j == 6 || j == 10)
                 {
-                    doSim(i, j, 7);
+                    
+                    if (i==x&&j==6)
+                    {
+                        doSim(i, j, 8, 1);
+                    }
+                    else
+                    {
+                        doSim(i, j, 7, 1);
+                    }
+                }
+                else if (j<6) 
+                {   
+                    doSim(i, j, level[j - 1, i - 1], 1);
+                    if (j==5)
+                    {
+                        if ((level[j-1,i-1]==2)||(level[j-1,i-1]==4))
+                        {
+                            x = i;
+                            y = j + 1;
+                        }
+                    }
+                }
+                else if (i%2==1)
+                {
+                    if (j==7)
+                    {
+                        doSim(i, j, 9, 28);
+                    }
+                    if (j==8)
+                    {
+                        doSim(i, j, 9, 6);
+                    }
+                    if (j == 9)
+                    {
+                        doSim(i, j, 9, 4);
+                    }
                 }
                 else
                 {
-                    doSim(i, j, level[j - 1, i - 1]);
+                    if (j == 7)
+                    {
+                        doSim(i, j, 9, 5);
+                    }
+                    if (j == 8)
+                    {
+                        doSim(i, j, 9, 3);
+                    }
+                    if (j == 9)
+                    {
+                        doSim(i, j, 9, 17);
+                    }
                 }
 
             }
