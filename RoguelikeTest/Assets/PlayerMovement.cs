@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
 
     public float runSpeed = 40f;
+    float curSpeed;
 
     float horizontalMove = 0f;
 
@@ -19,14 +21,15 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        curSpeed = runSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        
+        horizontalMove = Input.GetAxisRaw("Horizontal") * curSpeed;
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
@@ -60,5 +63,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void onCrouch (bool crouch) {
         animator.SetBool("isCrouching", crouch);
+	}
+
+    public void setSpeed(int numSlow) {
+        curSpeed = (float)(runSpeed * Math.Pow(0.5, numSlow));
 	}
 }

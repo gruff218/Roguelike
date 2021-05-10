@@ -39,13 +39,13 @@ public class PlayerCombat : MonoBehaviour
     public GameManager gameManager;
 
     List<float> weakness = new List<float>();
+    List<float> slowness = new List<float>();
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        weakness.Add(1.0f);
     }
 
     // Update is called once per frame
@@ -69,6 +69,13 @@ public class PlayerCombat : MonoBehaviour
             if (Time.time - weakness[0] > 5.0f) {
                 weakness.Remove(weakness[0]); 
                 Debug.Log("Weakness removed! Total amount: " + weakness.Count);
+			}  
+		}
+        if (slowness.Count > 0) {
+            GetComponent<PlayerMovement>().setSpeed(slowness.Count);
+            if (Time.time - slowness[0] > 10.0f) {
+                slowness.Remove(slowness[0]); 
+                Debug.Log("Slowness removed! Total amount: " + slowness.Count);
 			}  
 		}
     }
@@ -99,8 +106,8 @@ public class PlayerCombat : MonoBehaviour
 	}
     void Shoot()
     {
-        Vector2 target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y + 130));
-        Vector2 myPos = new Vector2(transform.position.x, transform.position.y + 1);
+        Vector2 target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+        Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
         Vector2 direction = target - myPos;
         direction.Normalize();
         GameObject bullet = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
@@ -182,9 +189,18 @@ public class PlayerCombat : MonoBehaviour
               Destroy(hitInfo.gameObject);
 		}
         if (hitInfo.gameObject.tag == "Spell") {
-            weakness.Add(Time.time);
+            float spell = UnityEngine.Random.Range(0, 2);
+            if (spell >= 1)
+            {
+                weakness.Add(Time.time);
+                Debug.Log("Weakness added! Total amount: " + weakness.Count);
+            } else {
+                slowness.Add(Time.time);
+                Debug.Log("Slowness added! Total amount: " + slowness.Count);
+			}
+            
             Destroy(hitInfo.gameObject);
-            Debug.Log("Weakness added! Total amount: " + weakness.Count);
+            
 		}
         
 	}

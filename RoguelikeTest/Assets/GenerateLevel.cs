@@ -26,17 +26,13 @@ public class GenerateLevel : MonoBehaviour
         
         int y = 0;
         int x = Random.Range(0, gridX);
-        level[0, x] = 1;
         int startX = x;
         int startY = y;
 
         int dir = -1;
 
-        float temp = Random.Range(0, 2);
-        if (temp >= 1)
-        {
-            dir = 1;
-        }
+
+        int start = 1;
 
         //Debug.Log("Start at pos: " + x);
 
@@ -95,10 +91,24 @@ public class GenerateLevel : MonoBehaviour
 			    } else {
                     level[y, x] = 1;
                     prevTileType = 1;
-                    int rand = Random.Range(0, 4);
-                    if (rand == 0) {
-                        dir = 0;        
-			    	}
+                    if (start == 1) {
+                    dir = -1;
+                        if (x == 0) {
+                            dir = 1;              
+						} else if (x != gridX - 1) {
+                            float startDir = Random.Range(0, 2);
+                            if (startDir >= 1)
+                            {
+                                dir = 1;
+                            }              
+		                }
+                        start = 0;
+					} else {
+                        int rand = Random.Range(0, 4);
+                        if (rand == 0) {
+                            dir = 0;        
+			    	    }
+                    }
 			    }
 
                 if (dir == 0) {

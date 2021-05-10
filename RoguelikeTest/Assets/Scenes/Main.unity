@@ -438,17 +438,17 @@ PrefabInstance:
     - target: {fileID: 3653259534674220758, guid: 353d0268d8e191944a05cee2beca491c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5044139937050568575, guid: 353d0268d8e191944a05cee2beca491c,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5044139937050568575, guid: 353d0268d8e191944a05cee2beca491c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 353d0268d8e191944a05cee2beca491c, type: 3}
@@ -1107,7 +1107,7 @@ MonoBehaviour:
   currentHealth: 0
   attackReach: 1.5
   healthBar: {fileID: 2074505151}
-  speed: 20
+  speed: 0
   firePoint: {fileID: 787114923}
   bulletPrefab: {fileID: 7703678519458980712, guid: a5268f1a870cd6142b3483298ee76be8,
     type: 3}
@@ -2114,12 +2114,12 @@ PrefabInstance:
     - target: {fileID: 1369275245085422593, guid: 376a000e25ec57b4488fd2a2d6459f9f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.8378983
+      value: 1.23
       objectReference: {fileID: 0}
     - target: {fileID: 1369275245085422593, guid: 376a000e25ec57b4488fd2a2d6459f9f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1533966
+      value: -0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1369275245085422593, guid: 376a000e25ec57b4488fd2a2d6459f9f,
         type: 3}
