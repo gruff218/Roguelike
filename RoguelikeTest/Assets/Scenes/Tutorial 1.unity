@@ -2576,10 +2576,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568af74e5137f344daf0d25b0db0e29d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stop: 0
   birdOriginal: {fileID: 6218420426109672157, guid: 9946f5bb682c3cb40a774bcf57aca79b,
     type: 3}
   opossumOriginal: {fileID: 3653259534674220758, guid: 353d0268d8e191944a05cee2beca491c,
     type: 3}
+  worm: {fileID: 2208037698714027778, guid: 7344c1ea2431c6f4ea911273e5840656, type: 3}
+  player: {fileID: 820667350}
 --- !u!114 &1921742478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2885,3 +2888,77 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1001 &2642465950938447269
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5468917599333578494, guid: 7344c1ea2431c6f4ea911273e5840656,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 820667352}
+    - target: {fileID: 6766325576833763972, guid: 7344c1ea2431c6f4ea911273e5840656,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766325576833763972, guid: 7344c1ea2431c6f4ea911273e5840656,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.48127
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766325576833763972, guid: 7344c1ea2431c6f4ea911273e5840656,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -52.031677
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766325576833763972, guid: 7344c1ea2431c6f4ea911273e5840656,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766325576833763972, guid: 7344c1ea2431c6f4ea911273e5840656,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766325576833763972, guid: 7344c1ea2431c6f4ea911273e5840656,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766325576833763972, guid: 7344c1ea2431c6f4ea911273e5840656,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766325576833763972, guid: 7344c1ea2431c6f4ea911273e5840656,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766325576833763972, guid: 7344c1ea2431c6f4ea911273e5840656,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766325576833763972, guid: 7344c1ea2431c6f4ea911273e5840656,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766325576833763972, guid: 7344c1ea2431c6f4ea911273e5840656,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982007011206502154, guid: 7344c1ea2431c6f4ea911273e5840656,
+        type: 3}
+      propertyPath: m_Name
+      value: Worm
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7344c1ea2431c6f4ea911273e5840656, type: 3}
