@@ -842,6 +842,7 @@ GameObject:
   - component: {fileID: 820667358}
   - component: {fileID: 820667359}
   - component: {fileID: 820667360}
+  - component: {fileID: 820667361}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1053,7 +1054,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820667350}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0030237a2d3bc0642a47c3defc1320d8, type: 3}
   m_Name: 
@@ -1112,6 +1113,28 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7703678519458980712, guid: a5268f1a870cd6142b3483298ee76be8,
     type: 3}
   gameManager: {fileID: 1921742479}
+--- !u!114 &820667361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820667350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb164b4db945fb840abe2ce3a750a88d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 10
+  jumpTime: 2
+  jumpTimeCounter: 0
+  grounded: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 1271
+  stoppedJumping: 0
+  groundCheck: {fileID: 1007352555}
+  groundCheckRadius: 0.5
 --- !u!1 &843258238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2166,15 +2189,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mage
       objectReference: {fileID: 0}
-    - target: {fileID: 5044139937050568575, guid: 376a000e25ec57b4488fd2a2d6459f9f,
+    - target: {fileID: 3653259534674220758, guid: 376a000e25ec57b4488fd2a2d6459f9f,
         type: 3}
-      propertyPath: m_AnchorMax.x
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5044139937050568575, guid: 376a000e25ec57b4488fd2a2d6459f9f,
         type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044139937050568575, guid: 376a000e25ec57b4488fd2a2d6459f9f,
+        type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 376a000e25ec57b4488fd2a2d6459f9f, type: 3}
@@ -4490,6 +4518,16 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 820667352}
+    - target: {fileID: 4516490330489598080, guid: 9946f5bb682c3cb40a774bcf57aca79b,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516490330489598080, guid: 9946f5bb682c3cb40a774bcf57aca79b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6218420426109672157, guid: 9946f5bb682c3cb40a774bcf57aca79b,
         type: 3}
       propertyPath: m_Name

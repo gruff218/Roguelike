@@ -98,12 +98,32 @@ public class PlayerCombat : MonoBehaviour
 
         foreach(Collider2D enemy in hitEnemies) {
             if (!enemy.isTrigger){
-                enemy.GetComponent<Enemy>().takeDamage(dmg);
+                
+                
+                if (canSee(GetComponent<Rigidbody2D>().position, enemy.transform.position)) {
+                    enemy.GetComponent<Enemy>().takeDamage(dmg);
+				}
 			}
             
 		}
 
 	}
+
+    public bool canSee(Vector2 position, Vector2 target) {
+        int layerMask = 1 << 8;
+        layerMask = ~layerMask;
+        RaycastHit2D hit = Physics2D.Linecast(position, target, layerMask);
+        Debug.DrawLine(position, target, Color.blue);
+        if (hit.collider != null) {
+            Debug.Log(hit.collider.name);
+            return hit.collider.gameObject.layer == 9;
+		} else {
+            return false;  
+		}
+        
+
+	}
+
     void Shoot()
     {
         Vector2 target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
