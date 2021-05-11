@@ -8,11 +8,12 @@ public class Enemies : MonoBehaviour
     public GameObject birdOriginal;
     public GameObject opossumOriginal;
     public GameObject worm;
-    public GameObject player;
+    Transform player;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player").transform;
         stop = false;
         //CreateBirds(2);
         //CreateOpossums(1);
@@ -33,7 +34,7 @@ public class Enemies : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.transform.position.y<-50&&!stop)
+        if (player.position.y<-50&&!stop)
         {
             stop = true;
             GameObject wormClone2 = Instantiate(worm, new Vector3(worm.transform.position.x+20, worm.transform.position.y - 50.0f, 0.0f), worm.transform.rotation);
