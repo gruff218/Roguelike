@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        int level = GameInfo.level;
+        maxHealth = maxHealth * (1 + level/10);
         currentHealth = maxHealth;
         animator.SetInteger("Health", currentHealth);
         rb = GetComponent<Rigidbody2D>();

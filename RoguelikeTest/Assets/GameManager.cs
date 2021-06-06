@@ -9,6 +9,18 @@ public class GameManager : MonoBehaviour
 
     public float restartDelay = 1f;
     public GameObject completeLevelUI;
+    public GameObject display;
+
+    int level;
+    void OnEnable() {
+        level = GameInfo.level;
+        display.GetComponent<DisplayLevel>().setLevel(level);
+	}
+    void OnDisable() {
+        PlayerPrefs.SetInt("level", level);
+	}
+
+    
 
     public void EndGame() {
         if (gameEnded == false) {
@@ -24,5 +36,9 @@ public class GameManager : MonoBehaviour
     void Restart() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
+	}
+
+    int getLevel() {
+        return level;
 	}
 }

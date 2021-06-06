@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class LevelComplete : MonoBehaviour
 {
+    
     public void LoadNextLevel() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GameInfo.level = GameInfo.level + 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }
