@@ -84,7 +84,7 @@ public class Enemy : MonoBehaviour
         GetComponent<Rigidbody2D>().gravityScale = 1;
         this.enabled = false;
 
-        
+        Destroy(this.gameObject, 0.5f);
 
 	}
     

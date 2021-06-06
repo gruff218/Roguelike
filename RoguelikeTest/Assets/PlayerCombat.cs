@@ -163,25 +163,25 @@ public class PlayerCombat : MonoBehaviour
         if (Time.time >= nextPower) {
             if (enemy.tag == "AttackUp") {
                 Debug.Log("Attack was boosted");
-                attackDamage = attackDamage * 2;
+                attackDamage = (int)(attackDamage * 1.2f);
                 Destroy(enemy.gameObject);
                 nextPower = Time.time + 1f/powerBuffer;
                 return;
 		    } else if (enemy.tag == "RangedUp") {
                 Debug.Log("Ranged Damage was boosted");
-                bulletDamage = bulletDamage * 2;
+                bulletDamage = (int)(bulletDamage * 1.2f);
                 Destroy(enemy.gameObject);
                 nextPower = Time.time + 1f/powerBuffer;
                 return;
 		    } else if (enemy.tag == "AttackSpeedUp") {
                 Debug.Log("Attack Speed was boosted");
-                attackRate = attackRate * 2;
+                attackRate = attackRate * 1.2f;
                 Destroy(enemy.gameObject);
                 nextPower = Time.time + 1f/powerBuffer;
                 return;
 		    } else if (enemy.tag == "RangedSpeedUp") {
                 Debug.Log("Ranged Attack Speed was boosted");
-                bulletRate = bulletRate * 2;
+                bulletRate = bulletRate * 1.2f;
                 Destroy(enemy.gameObject);
                 nextPower = Time.time + 1f/powerBuffer;
                 return;

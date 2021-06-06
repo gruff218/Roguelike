@@ -2080,7 +2080,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tmapSize: {x: 12, y: 8, z: 0}
   map: {fileID: 1813485688}
-  tile: {fileID: 11400000, guid: 57aa0853ed9d94b4bbff305bc638b480, type: 2}
+  tile: {fileID: 11400000, guid: 8656393dac9714846bb4955754b642fd, type: 2}
+  leftTile: {fileID: 11400000, guid: a51aa88ace86f044e850e7b79524b0d8, type: 2}
+  rightTile: {fileID: 11400000, guid: dc595183afa02bc478ee9e5e92704f08, type: 2}
+  loneTile: {fileID: 11400000, guid: 83859b8dc7ec2cd4b8401757450bf15b, type: 2}
+  slab: {fileID: 11400000, guid: 3d2290393135344439fee5e30298ed87, type: 2}
+  leftSlab: {fileID: 11400000, guid: eb8203f260e8bee47ae434ebf50cd698, type: 2}
+  rightSlab: {fileID: 11400000, guid: 0db1eeb6858502942b5e327dfa5ec5ca, type: 2}
+  loneSlab: {fileID: 11400000, guid: aca2e0ebde3bd2146ac339725867fc5c, type: 2}
   opossum: {fileID: 3653259534674220758, guid: 353d0268d8e191944a05cee2beca491c, type: 3}
   bird: {fileID: 6218420426109672157, guid: 9946f5bb682c3cb40a774bcf57aca79b, type: 3}
   player: {fileID: 820667352}
