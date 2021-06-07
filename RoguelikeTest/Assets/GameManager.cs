@@ -5,9 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    bool gameEnded = false;
 
-    public float restartDelay = 1f;
+    public float endDelay = 2f;
     public GameObject completeLevelUI;
     public GameObject display;
 
@@ -23,10 +22,16 @@ public class GameManager : MonoBehaviour
     
 
     public void EndGame() {
-        if (gameEnded == false) {
-            gameEnded = true;
-            Invoke("Restart", restartDelay);
-		}
+        
+        completeLevelUI.SetActive(true);
+        Invoke("QuitGame", endDelay);
+		
+	}
+
+    public void QuitGame() {
+        Debug.Log("HELLO");
+        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
 	}
 
     public void CompleteLevel() {

@@ -83,12 +83,13 @@ public class PlayerCombat : MonoBehaviour
         }
         if (slowness.Count > 0)
         {
-            GetComponent<PlayerMovement>().setSpeed(slowness.Count);
+            
             if (Time.time - slowness[0] > 10.0f)
             {
                 slowness.Remove(slowness[0]);
                 Debug.Log("Slowness removed! Total amount: " + slowness.Count);
             }
+            GetComponent<PlayerMovement>().setSpeed(slowness.Count);
         }
     }
 

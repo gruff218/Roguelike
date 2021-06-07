@@ -20,6 +20,7 @@ public class TileAutomata : MonoBehaviour
     public Tile loneSlab;
     public GameObject opossum;
     public GameObject bird;
+    public GameObject mage;
     int width;
     int height;
     private string[] array0 = new string[5];
@@ -319,8 +320,11 @@ public class TileAutomata : MonoBehaviour
                 if (terrainMap[x, y] == 'E') {
                     Vector3 temp = new Vector3(0, 1, 0);
                     GameObject enemy = bird;
-                    if (RandomNumber(1, 3) == 1) {
+                    int rand = RandomNumber(1, 4);
+                    if (rand == 1) {
                         enemy = opossum;           
+					} else if (rand == 2) {
+                        enemy = mage;           
 					}
                     
                     Instantiate(enemy, map.layoutGrid.CellToWorld(new Vector3Int(arrx * 12 + x, -arry * 8 - y, 0)) + temp, Quaternion.identity);
