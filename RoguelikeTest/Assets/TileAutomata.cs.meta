@@ -3,7 +3,20 @@ guid: 7c631763c0d05db428f3f66d9b32d3b3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - map: {instanceID: 0}
+  - tile: {instanceID: 0}
+  - leftTile: {instanceID: 0}
+  - rightTile: {instanceID: 0}
+  - loneTile: {instanceID: 0}
+  - slab: {instanceID: 0}
+  - leftSlab: {instanceID: 0}
+  - rightSlab: {instanceID: 0}
+  - loneSlab: {instanceID: 0}
+  - opossum: {instanceID: 0}
+  - bird: {instanceID: 0}
+  - mage: {instanceID: 0}
+  - player: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Worm_AI : MonoBehaviour
 {
+    GameObject end;
     int dmg;
     int currentHealth;
     Rigidbody2D rb;
@@ -21,6 +22,7 @@ public class Worm_AI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        end = GameObject.FindGameObjectWithTag("End");
         dmg = 30;
         player = GameObject.FindWithTag("Player").transform;
         bodyList = new List<GameObject>();
@@ -154,9 +156,10 @@ public class Worm_AI : MonoBehaviour
         foreach (Collider2D collider in colliders)
 
 
-            GetComponent<Rigidbody2D>().gravityScale = 1;
+        GetComponent<Rigidbody2D>().gravityScale = 1;
         this.enabled = false;
-
+        end.SetActive(true);
+        end.transform.position = new Vector3(40, -71.4f, 0);
 
 
     }
