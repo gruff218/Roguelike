@@ -16,15 +16,24 @@ public class Bullet : MonoBehaviour
         if (hitInfo.gameObject.name == "Player") {
             return;  
 		}
-        if (hitInfo.gameObject.layer != 9) {
-            return;  
-		}
-        Enemy e = hitInfo.GetComponent<Enemy>();
-        if (e != null)
+        if (hitInfo.gameObject.layer == 9)
         {
-            e.takeDamage(player.GetComponent<PlayerCombat>().bulletDamage);
+            Enemy e = hitInfo.GetComponent<Enemy>();
+            if (e != null)
+            {
+                e.takeDamage(player.GetComponent<PlayerCombat>().bulletDamage);
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        if (hitInfo.gameObject.layer == 12) 
+        {
+            Boss e = hitInfo.GetComponent<Boss>();
+            if (e != null)
+            {
+                e.takeDamage(player.GetComponent<PlayerCombat>().bulletDamage);
+            }
+            Destroy(gameObject);
+        }
 
 
 
