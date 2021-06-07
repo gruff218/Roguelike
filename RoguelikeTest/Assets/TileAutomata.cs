@@ -11,6 +11,13 @@ public class TileAutomata : MonoBehaviour
     public Vector3Int tmapSize;
     public Tilemap map;
     public Tile tile;
+    public Tile leftTile;
+    public Tile rightTile;
+    public Tile loneTile;
+    public Tile slab;
+    public Tile leftSlab;
+    public Tile rightSlab;
+    public Tile loneSlab;
     public GameObject opossum;
     public GameObject bird;
     int width;
@@ -280,7 +287,34 @@ public class TileAutomata : MonoBehaviour
                 if (terrainMap[x, y] == 'X')
                 {
                     tcounter += arrx * 12 + x;
-                    map.SetTile(new Vector3Int(arrx * 12 + x, -arry * 8 - y, 0), tile);
+                    /*if (x == 0) {
+                        if (terrainMap[x + 1, y] != 'X') {
+                            map.SetTile(new Vector3Int(arrx * 12 + x, -arry * 8 - y, 0), rightTile);               
+						} else {
+                            map.SetTile(new Vector3Int(arrx * 12 + x, -arry * 8 - y, 0), tile);
+                            Debug.Log(map.GetTile(new Vector3Int(arrx * 12 + x, -arry * 8 - y, 0)).name);
+						}      
+					} else if (x == width - 1) {
+                        if (terrainMap[x - 1, y] != 'X') {
+                            map.SetTile(new Vector3Int(arrx * 12 + x, -arry * 8 - y, 0), leftTile);               
+						} else {
+                            map.SetTile(new Vector3Int(arrx * 12 + x, -arry * 8 - y, 0), tile);            
+						}      
+					} else if (terrainMap[x - 1, y] == 'X' && terrainMap[x + 1, y] == 'X') {
+                        map.SetTile(new Vector3Int(arrx * 12 + x, -arry * 8 - y, 0), tile);
+                    } else if (terrainMap[x - 1, y] == 'X' && terrainMap[x + 1, y] != 'X') {
+                        map.SetTile(new Vector3Int(arrx * 12 + x, -arry * 8 - y, 0), rightTile);           
+					} else if (terrainMap[x - 1, y] != 'X' && terrainMap[x + 1, y] == 'X') {
+                        map.SetTile(new Vector3Int(arrx * 12 + x, -arry * 8 - y, 0), leftTile);           
+					} else {
+                        map.SetTile(new Vector3Int(arrx * 12 + x, -arry * 8 - y, 0), loneTile);           
+					}
+                    if (y > 0) {
+                        if (terrainMap[x, y - 1] == 'O' || terrainMap[x, y - 1] == 'E') {
+                            map.SetTile(new Vector3Int(arrx * 12 + x, -arry * 8 - y + 1, 0), slab);              
+						}           
+					}*/
+                    map.SetTile(new Vector3Int(arrx * 12 + x, -arry * 8 - y, 0), tile);  
                 }
                 if (terrainMap[x, y] == 'E') {
                     Vector3 temp = new Vector3(0, 1, 0);
@@ -337,6 +371,92 @@ public class TileAutomata : MonoBehaviour
     {
 
     }
+
+    bool CheckTile(int x, int y, bool isTile) {
+        if (isTile) {
+            if (map.HasTile(new Vector3Int(x, y, 0))) {
+                TileBase temp = map.GetTile(new Vector3Int(x, y, 0));
+                if (temp.name == tile.name || temp.name == leftTile.name || temp.name == rightTile.name || temp.name == loneTile.name) {
+                    return true;        
+				} 
+			}
+            return false;
+		} else {
+            if (map.HasTile(new Vector3Int(x, y, 0))) {
+                TileBase temp = map.GetTile(new Vector3Int(x, y, 0));
+                if (temp.name == slab.name || temp.name == leftSlab.name || temp.name == rightSlab.name || temp.name == loneSlab.name) {
+                    return true;        
+				} 
+			}
+            return false;
+		}
+        
+	}
+
+    void RefineTiles() {
+        for (int x = map.cellBounds.min.x; x < map.cellBounds.max.x; x++) {
+            for (int y = map.cellBounds.min.y; y < map.cellBounds.max.y; y++) {
+                if (CheckTile(x, y, true)) {
+                    if (x == map.cellBounds.min.x) {
+                        if (CheckTile(x + 1, y, true)) {
+                            map.SetTile(new Vector3Int(x, y, 0), tile); 
+						} else {
+                            map.SetTile(new Vector3Int(x, y, 0), rightTile);
+						}      
+					} else if (x == map.cellBounds.max.x - 1) {
+                        if (CheckTile(x - 1, y, true)) {
+                            map.SetTile(new Vector3Int(x, y, 0), tile);   
+						} else {
+                            map.SetTile(new Vector3Int(x, y, 0), leftTile);
+						}     
+					} else if (CheckTile(x - 1, y, true) && CheckTile(x + 1, y, true)) {
+                        map.SetTile(new Vector3Int(x, y, 0), tile);
+                    } else if (CheckTile(x - 1, y, true)) {
+                        map.SetTile(new Vector3Int(x, y, 0), rightTile);
+					} else if (CheckTile(x + 1, y, true)) {
+                        map.SetTile(new Vector3Int(x, y, 0), leftTile);          
+					} else {
+                        map.SetTile(new Vector3Int(x, y, 0), loneTile);        
+					}
+                } 
+                
+                if (y < map.cellBounds.max.y - 1) {
+                    if (!map.HasTile(new Vector3Int(x, y, 0))) {
+                        if (CheckTile(x, y - 1, true)) {
+                            map.SetTile(new Vector3Int(x, y, 0), slab);                   
+						}           
+					}        
+				}
+
+                if (CheckTile(x, y, false)) {
+                    if (x == map.cellBounds.min.x) {
+                        if (CheckTile(x + 1, y, true) || CheckTile(x + 1, y, false)) {
+                            map.SetTile(new Vector3Int(x, y, 0), slab); 
+						} else {
+                            map.SetTile(new Vector3Int(x, y, 0), rightSlab);
+						}      
+					} else if (x == map.cellBounds.max.x - 1) {
+                        if (CheckTile(x - 1, y, true) || CheckTile(x - 1, y, false)) {
+                            map.SetTile(new Vector3Int(x, y, 0), slab);   
+						} else {
+                            map.SetTile(new Vector3Int(x, y, 0), leftSlab);
+						}     
+					} else if ((CheckTile(x - 1, y, true) || CheckTile(x - 1, y, false)) && (CheckTile(x + 1, y, true) || CheckTile(x + 1, y, false))) {
+                        map.SetTile(new Vector3Int(x, y, 0), slab);
+                    } else if (CheckTile(x - 1, y, true) || CheckTile(x - 1, y, false)) {
+                        map.SetTile(new Vector3Int(x, y, 0), rightSlab);
+					} else if (CheckTile(x + 1, y, true) || CheckTile(x + 1, y, false)) {
+                        map.SetTile(new Vector3Int(x, y, 0), leftSlab);          
+					} else {
+                        map.SetTile(new Vector3Int(x, y, 0), loneSlab);        
+					}
+				}
+                
+			}  
+		}
+        
+        return;
+	}
 
     public void GenLevel() {
         int[,] level = GetComponent<GenerateLevel>().GenLevel(5, 5);
@@ -416,6 +536,9 @@ public class TileAutomata : MonoBehaviour
 
             }
         }
+
+        map.CompressBounds();
+        RefineTiles();
         
         player.position = new Vector3(startX, startY, 0);
 	}

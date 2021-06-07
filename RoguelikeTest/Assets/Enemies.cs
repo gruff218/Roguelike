@@ -38,7 +38,7 @@ public class Enemies : MonoBehaviour
         {
             stop = true;
             GameObject wormClone2 = Instantiate(worm, new Vector3(worm.transform.position.x+20, worm.transform.position.y - 50.0f, 0.0f), worm.transform.rotation);
-            GameObject wormClone1 = Instantiate(worm, new Vector3(worm.transform.position.x-20, worm.transform.position.y - 50.0f, 0.0f), worm.transform.rotation);
+            // GameObject wormClone1 = Instantiate(worm, new Vector3(worm.transform.position.x-20, worm.transform.position.y - 50.0f, 0.0f), worm.transform.rotation);
         }
     }
 }
